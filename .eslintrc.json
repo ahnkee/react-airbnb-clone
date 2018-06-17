@@ -1,0 +1,12 @@
+{
+    "extends": ["eslint:recommended", "google", "prettier", "plugin:prettier/recommended"],
+    "plugins": ["prettier"],
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": "error",
+      "prefer-const": "error"
+    }
+  }
