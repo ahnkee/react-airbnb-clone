@@ -4,10 +4,13 @@
   "main": "index.mjs",
   "license": "MIT",
   "engines": {
-    "node": ">=10.4.1"
+    "node": ">=8.11.2"
   },
   "scripts": {
-    "start": "node -r dotenv/config --experimental-modules src/index.mjs"
+    "sequelize": "node_modules/.bin/sequelize",
+    "migration:generate": "sequelize migration:generate --name",
+    "seed:generate": "sequelize seed:generate --name",
+    "start": "nodemon index.js --exec babel-node"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -17,6 +20,21 @@
     "morgan": "^1.9.0",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.37.10"
+    "sequelize": "^4.37.10",
+    "sequelize-cli": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/node": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "@babel/preset-stage-2": "^7.0.0-beta.51",
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "nodemon": "^1.17.5",
+    "prettier": "^1.13.5"
   }
 }
