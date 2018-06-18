@@ -1,7 +1,7 @@
 {
   "name": "@rac/server",
   "version": "1.0.0",
-  "main": "src",
+  "main": "index.mjs",
   "license": "MIT",
   "engines": {
     "node": ">=10.4.1"
