@@ -15,7 +15,7 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
 
-app.server.listen(process.env.PORT || config.port, () => {
+app.server.listen(config.port, () => {
   // eslint-disable-next-line no-console
   console.log(`Started on port ${app.server.address().port}`);
 });
