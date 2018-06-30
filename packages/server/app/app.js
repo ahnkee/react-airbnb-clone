@@ -4,10 +4,13 @@ import cors from '@koa/cors';
 import helmet from 'koa-helmet';
 import logger from 'koa-morgan';
 
-import { requestId } from './middlewares';
+import db from './db';
 import router from './routes';
+import { requestId } from './middlewares';
 
 const app = new Koa();
+app.context.sequelize = db.sequelize;
+app.context.models = db.models;
 
 app.use(helmet());
 
