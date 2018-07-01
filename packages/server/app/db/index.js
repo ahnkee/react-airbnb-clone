@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Sequelize from 'sequelize';
-import config from './config';
+import * as config from './config';
 
 const dbConfig = config[process.env.NODE_ENV || 'development'];
 const { username, database, password, host, dialect } = dbConfig;
@@ -13,6 +13,7 @@ if (!db) {
   let sequelize;
 
   if (config.use_env_variable) {
+    // figure out how to pass in 'define' config
     sequelize = new Sequelize(process.env[config.use_env_variable]);
   } else {
     sequelize = new Sequelize(database, username, password, {
@@ -25,6 +26,9 @@ if (!db) {
         idle: 10000,
       },
       operatorsAliases: false,
+      define: {
+        underscoredAll: true,
+      },
     });
   }
 
@@ -33,7 +37,7 @@ if (!db) {
     .filter(file => !file.startsWith('.') && file.endsWith('.js'))
     .reduce((acc, file) => {
       const _imported = require(path.join(modelsPath, file));
-      const { default: Model, attributes, options } = _imported;
+      const { default: Model, attributes, options = {} } = _imported;
 
       return Object.assign(acc, {
         [Model.name]: Model.init(attributes, { ...options, sequelize }),

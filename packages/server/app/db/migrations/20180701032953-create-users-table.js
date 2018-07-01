@@ -15,6 +15,10 @@ export default {
           unique: true,
           allowNull: false,
         },
+        password: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
         created_at: {
           type: Sequelize.DATE,
           allowNull: false,
@@ -28,8 +32,6 @@ export default {
       };
 
       await queryInterface.createTable(table, attributes, { transaction });
-
-      // await queryInterface.addIndex(table, ['email'], { transaction });
     }),
 
   down: queryInterface => queryInterface.dropTable(table),
