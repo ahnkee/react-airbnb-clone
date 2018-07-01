@@ -5,7 +5,7 @@ import * as config from './config';
 
 const dbConfig = config[process.env.NODE_ENV || 'development'];
 const { username, database, password, host, dialect } = dbConfig;
-const modelsPath = path.join(__dirname, '../models');
+const modelsDir = path.join(__dirname, '../models');
 
 let db;
 
@@ -33,10 +33,10 @@ if (!db) {
   }
 
   const models = fs
-    .readdirSync(modelsPath)
-    .filter(file => !file.startsWith('.') && file.endsWith('.js'))
-    .reduce((acc, file) => {
-      const _imported = require(path.join(modelsPath, file));
+    .readdirSync(modelsDir)
+    .filter(dir => fs.statSync(path.join(modelsDir, dir)).isDirectory())
+    .reduce((acc, dir) => {
+      const _imported = require(path.join(modelsDir, dir, 'model.js'));
       const { default: Model, attributes, options = {} } = _imported;
 
       return Object.assign(acc, {
