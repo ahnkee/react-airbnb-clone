@@ -1,11 +1,12 @@
-import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
 import cors from '@koa/cors';
 import helmet from 'koa-helmet';
+import Koa from 'koa';
 import logger from 'koa-morgan';
 
 import db from './db';
 import router from './routes';
+import graphql from './routes/graphql';
 import { requestId } from './middlewares';
 
 const app = new Koa();
@@ -42,6 +43,7 @@ app.use(
 );
 
 app.use(router.routes());
+app.use(graphql.routes());
 app.use(router.allowedMethods());
 
 export default app;
