@@ -7,7 +7,7 @@
     "node": ">=8.11.2"
   },
   "scripts": {
-    "sequelize": "node_modules/.bin/sequelize",
+    "sequelize": "babel-node node_modules/.bin/sequelize",
     "migration:generate": "sequelize migration:generate --name",
     "seed:generate": "sequelize seed:generate --name",
     "start": "nodemon --exec 'node -r dotenv/config' app/index.js --exec babel-node"

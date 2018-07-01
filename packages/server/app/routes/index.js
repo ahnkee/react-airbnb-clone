@@ -1,6 +1,6 @@
-import Router from 'koa-router';
+import KoaRouter from 'koa-router';
 
-const router = new Router();
+const router = new KoaRouter();
 router.prefix('/v1');
 
 router.get('/', async ctx => {
