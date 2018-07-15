@@ -38,7 +38,7 @@ const schemas = fs
 
       const typeDefs = fs.existsSync(schemaPath) && importAsStr(schemaPath);
       const resolvers =
-        fs.existsSync(resolversPath) && require(resolversPath).default;
+        fs.existsSync(resolversPath) && require(resolversPath).default; // eslint-disable-line
 
       return typeDefs
         ? acc.concat(makeExecutableSchema({ typeDefs, resolvers }))
@@ -49,7 +49,8 @@ const schemas = fs
 
 const rootSchema = mergeSchemas({ schemas });
 
-addSchemaLevelResolveFunction(rootSchema, (root, args, context, info) => {
+/* eslint-disable no-param-reassign */
+addSchemaLevelResolveFunction(rootSchema, (root, args, context) => {
   context.models = db.models;
   context.sequelize = db.sequelize;
 });

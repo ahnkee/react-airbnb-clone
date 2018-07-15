@@ -1,23 +1,28 @@
 module.exports = {
-  extends: [
-    'eslint:recommended',
-    'google',
-    'prettier',
-    'plugin:prettier/recommended',
-  ],
+  root: true,
+
   parser: 'babel-eslint',
+
   plugins: ['prettier'],
+
   parserOptions: {
+    jest: true,
     sourceType: 'module',
-    ecmaVersion: 2017,
+    ecmaVersion: 2018,
   },
+
   env: {
     es6: true,
     node: true,
+    jest: true,
   },
+
   rules: {
     'prettier/prettier': 'error',
-    'prefer-const': 'error',
     'require-jsdoc': 'off',
+    // turn off rules to be handled by prettier
+    quotes: 0,
+    semi: 0,
+    'comma-dangle': 0,
   },
 };
