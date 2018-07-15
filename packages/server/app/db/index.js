@@ -5,7 +5,7 @@ import * as config from './config';
 
 const dbConfig = config[process.env.NODE_ENV || 'development'];
 const { username, database, password, host, dialect } = dbConfig;
-const modelsDir = path.join(__dirname, '../models');
+const modelsDir = path.join(__dirname, '../modules');
 
 let db;
 

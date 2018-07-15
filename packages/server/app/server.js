@@ -5,8 +5,7 @@ import Koa from 'koa';
 import logger from 'koa-morgan';
 
 import db from './db';
-import router from './routes';
-import graphql from './routes/graphql';
+import { api as apiRoutes, graphql as graphRoutes } from './routes';
 import { requestId } from './middlewares';
 
 const app = new Koa();
@@ -42,8 +41,7 @@ app.use(
   }),
 );
 
-app.use(router.routes());
-app.use(graphql.routes());
-app.use(router.allowedMethods());
+app.use(apiRoutes.routes(), apiRoutes.allowedMethods());
+app.use(graphRoutes.routes(), graphRoutes.allowedMethods());
 
 export default app;

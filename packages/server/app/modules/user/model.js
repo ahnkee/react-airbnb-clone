@@ -1,4 +1,5 @@
 import Sequelize, { Model, DataTypes } from 'sequelize';
+import bcrypt from 'bcrypt';
 
 export const attributes = {
   id: {
@@ -38,4 +39,19 @@ export const options = {
   },
 };
 
-export default class User extends Model {}
+export default class User extends Model {
+  /**
+   * Encrypt password field
+   * @throws Error if password does not exist
+   * @return {object} reference to user instance
+   */
+  async hashPassword() {
+    if (!this.password) {
+      throw new Error('password does not exist for user');
+    }
+
+    this.password = await bcrypt.hash(this.password, 10);
+
+    return this;
+  }
+}

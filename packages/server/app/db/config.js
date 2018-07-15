@@ -4,6 +4,7 @@ export const development = {
   database: 'react-airbnb-clone-dev',
   host: '127.0.0.1',
   dialect: 'postgres',
+  logging: true,
   migrationStorage: 'sequelize',
   migrationStorageTableName: 'sequelize_migrations',
   seederStorage: 'sequelize',

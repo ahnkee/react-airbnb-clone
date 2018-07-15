@@ -1,6 +1,6 @@
 import KoaRouter from 'koa-router';
 import { graphqlKoa, graphiqlKoa } from 'apollo-server-koa';
-import schema from '../db/schema';
+import rootSchema from '../modules/rootSchema';
 
 const router = new KoaRouter();
 const { NODE_ENV } = process.env;
@@ -8,14 +8,14 @@ const { NODE_ENV } = process.env;
 router.get(
   '/graphql',
   graphqlKoa({
-    schema,
+    schema: rootSchema,
   }),
 );
 
 router.post(
   '/graphql',
   graphqlKoa({
-    schema,
+    schema: rootSchema,
   }),
 );
 

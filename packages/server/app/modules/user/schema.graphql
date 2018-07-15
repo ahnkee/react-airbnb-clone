@@ -1,0 +1,17 @@
+scalar DateTime
+
+type User {
+  id: String!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Query {
+  user(id: String, email: String): User
+  users: [User]!
+}
+
+type Mutation {
+  register(email: String!, password: String!): User
+}

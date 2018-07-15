@@ -1,0 +1,21 @@
+{
+  "schema": {
+    "files": "app/**/*.graphql"
+  },
+  "query": {
+    "files": [
+      {
+        "match": "app/**/*.js",
+        "parser": [
+          "EmbeddedQueryParser",
+          { "startTag": "Relay\\.QL`", "endTag": "`" }
+        ],
+        "isRelay": true
+      },
+      {
+        "match": "fixtures/**/*.graphql",
+        "parser": "QueryParser"
+      }
+    ]
+  }
+}
