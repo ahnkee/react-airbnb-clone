@@ -20,6 +20,12 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'require-jsdoc': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+      },
+    ],
     // turn off rules to be handled by prettier
     quotes: 0,
     semi: 0,

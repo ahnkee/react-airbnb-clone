@@ -1,11 +1,11 @@
 {
   "schema": {
-    "files": "app/**/*.graphql"
+    "files": "src/**/*.graphql"
   },
   "query": {
     "files": [
       {
-        "match": "app/**/*.js",
+        "match": "src/**/*.js",
         "parser": [
           "EmbeddedQueryParser",
           { "startTag": "Relay\\.QL`", "endTag": "`" }

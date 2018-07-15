@@ -1,4 +1,4 @@
 {
-  "ignore": [".git", "app/db/migrations", "app/db/seeders"],
+  "ignore": [".git", "src/db/migrations", "src/db/seeders"],
   "ext": "js,json,graphql"
 }

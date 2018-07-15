@@ -1,7 +1,7 @@
 {
   "name": "@rac/server",
   "version": "1.0.0",
-  "main": "app",
+  "main": "src",
   "license": "MIT",
   "engines": {
     "node": ">=8.11.2"
@@ -10,7 +10,8 @@
     "sequelize": "babel-node node_modules/.bin/sequelize",
     "migration:generate": "sequelize migration:generate --name",
     "seed:generate": "sequelize seed:generate --name",
-    "start": "nodemon app/index.js --exec babel-node"
+    "start": "nodemon src/index.js --exec babel-node",
+    "test": "jest"
   },
   "dependencies": {
     "@koa/cors": "2",
