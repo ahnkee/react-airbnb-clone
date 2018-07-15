@@ -10,7 +10,7 @@
     "sequelize": "babel-node node_modules/.bin/sequelize",
     "migration:generate": "sequelize migration:generate --name",
     "seed:generate": "sequelize seed:generate --name",
-    "start": "nodemon app/index.js --exec babel-node"
+    "start": "nodemon index.js --exec babel-node"
   },
   "dependencies": {
     "@koa/cors": "2",
